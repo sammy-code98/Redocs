@@ -16,8 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function ModalBox({open, setOpen}) {
-
+export default function ModalBox({ open, setOpen, title, setTitle, addDocs }) {
   const handleClose = () => setOpen(false);
   return (
     <div>
@@ -28,9 +27,14 @@ export default function ModalBox({open, setOpen}) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <input placeholder="Add the Title" className="add-input" />{" "}
+          <input
+            placeholder="Add the Title"
+            className="add-input"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+          />{" "}
           <div className="button-container">
-            <Button variant="contained" className="add-docs">
+            <Button variant="contained" className="add-docs" onClick={addDocs}>
               Add
             </Button>
           </div>
