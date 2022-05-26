@@ -5,6 +5,7 @@ import { addDoc, collection } from "firebase/firestore";
 export default function Docs({ database }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false)
 
   // state to hold data
   const [title, setTitle] = useState("");
@@ -17,6 +18,7 @@ export default function Docs({ database }) {
     })
       .then(() => {
         alert("Data added");
+        handleClose()
       })
       .catch(() => {
         alert("cannot add data");
