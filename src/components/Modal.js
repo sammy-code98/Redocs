@@ -16,7 +16,8 @@ const style = {
   p: 4,
 };
 
-export default function ModalBox(open, setOpen) {
+export default function ModalBox({open, setOpen}) {
+
   const handleClose = () => setOpen(false);
   return (
     <div>
