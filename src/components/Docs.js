@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import ModalBox from "./Modal";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 
@@ -38,6 +39,11 @@ export default function Docs({ database }) {
       );
     });
   };
+
+  let navigate = useNavigate();
+  const getId = (id) => {
+    navigate(`/editDocs/${id}`);
+  };
   // to prevent the  concurrent rendering react v18 use the useRef
 
   const isMounted = useRef();
@@ -67,7 +73,11 @@ export default function Docs({ database }) {
       <div className="grid-main">
         {docsData.map((doc) => {
           return (
-            <div key={doc.id} className="grid-child">
+            <div
+              key={doc.id}
+              className="grid-child"
+              onClick={() => getId(doc.id)}
+            >
               <p>{doc.title}</p>
             </div>
           );
