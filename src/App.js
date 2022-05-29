@@ -1,12 +1,17 @@
-import './App.css';
-import Docs from './components/Docs';
-import {app, database} from "./firebaseConfig"
+import "./App.css";
+import Docs from "./components/Docs";
+import EditDocs from "./components/EditDocs";
+import { Routes, Route } from "react-router-dom";
+import { app, database } from "./firebaseConfig";
 
 function App() {
   return (
-   <>
-   <Docs  database={database}/>
-   </>
+    <>
+      <Routes>
+        <Route path="/" element={<Docs database={database} />} />
+        <Route path="/editDocs/:id"  element={<EditDocs  database={database}/>} />
+      </Routes>
+    </>
   );
 }
 
