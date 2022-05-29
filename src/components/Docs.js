@@ -20,6 +20,7 @@ export default function Docs({ database }) {
   const addDocs = () => {
     addDoc(collectionRef, {
       title: title,
+      docsDesc : ''
     })
       .then(() => {
         alert("Data added");
@@ -53,7 +54,7 @@ export default function Docs({ database }) {
     }
     isMounted.current = true;
     getDocs();
-  }, []);
+  });
   return (
     <div className="docs-container">
       <h1>my docs</h1>
@@ -79,6 +80,10 @@ export default function Docs({ database }) {
               onClick={() => getId(doc.id)}
             >
               <p>{doc.title}</p>
+
+              {/*  use dangerouslySetInnerHTML because data is added in the form of tags in React Quill. 
+              That makes it easier to render the formatting. */}
+              <div dangerouslySetInnerHTML={{ __html: doc.docsDesc }} />
             </div>
           );
         })}
