@@ -53,7 +53,7 @@ export default function Docs({ database }) {
     }
     isMounted.current = true;
     getDocs();
-  }, []);
+  });
   return (
     <div className="docs-container">
       <h1>my docs</h1>

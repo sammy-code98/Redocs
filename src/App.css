@@ -5,6 +5,9 @@
 .docs-container {
   text-align: center;
 }
+.edit-container {
+  padding: 0 50px;
+}
 
 .add-docs {
   height: 40px;
@@ -14,38 +17,36 @@
   color: #fff;
   border: none;
   cursor: pointer;
-  border-radius:8px;
+  border-radius: 8px;
 }
 
-.add-input{
+.add-input {
   width: 95%;
   height: 40px;
   outline: none;
   border: 1px solid #1d9bf0;
   border-radius: 9px;
   padding: 10px;
-
 }
-.button-container{
+.button-container {
   text-align: center;
   margin: 30px;
 }
 
-.grid-main{
+.grid-main {
   display: grid;
   grid-template-columns: auto auto auto auto;
   color: whitesmoke;
-  font-weight:bold;
+  font-weight: bold;
   margin-top: 20px;
   gap: 20px;
   justify-content: center;
 }
-.grid-child{
-  padding:20px auto;
+.grid-child {
+  padding: 20px auto;
   background-color: #1d9bf0;
   width: 300px;
   cursor: pointer;
-  border-radius:8px;
+  border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
 }
