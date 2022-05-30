@@ -15,8 +15,56 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import { styled, alpha } from "@mui/material/styles";
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
+import Avatar from "@mui/material/Avatar";
+import AssignmentIcon from '@mui/icons-material/Assignment';
+
 
 const drawerWidth = 240;
+
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
+  borderRadius: "8px",
+
+  backgroundColor: "#dadce0",
+  "&:hover": {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: "100%",
+  [theme.breakpoints.up("sm")]: {
+    marginLeft: theme.spacing(8),
+    padding: "2px",
+    width: "70%",
+  },
+}));
+
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: "inherit",
+  "& .MuiInputBase-input": {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
+    },
+  },
+}));
 
 function HomeLayout({ children }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -83,14 +131,15 @@ function HomeLayout({ children }) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar elevation={1}
+      <AppBar
+        elevation={1}
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar className="nav"  >
+        <Toolbar className="nav">
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -100,7 +149,32 @@ function HomeLayout({ children }) {
           >
             <MenuIcon />
           </IconButton>
-          <div>search</div>
+          <AssignmentIcon />
+
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ display: { xs: "none", sm: "block" } }}
+          >
+            Docs{" "}
+          </Typography>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ "aria-label": "search" }}
+            />
+          </Search>
+          <Avatar
+            alt="Remy Sharp"
+            src="/static/images/avatar/1.jpg"
+            sx={{ width: 40, height: 40 }}
+            style={{marginLeft:'100px'}}
+
+          />
         </Toolbar>
       </AppBar>
       <Box
