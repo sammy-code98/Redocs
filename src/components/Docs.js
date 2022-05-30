@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ModalBox from "./Modal";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
+import HomeLayout from "../layout/HomeLayout";
 
 export default function Docs({ database }) {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function Docs({ database }) {
   const addDocs = () => {
     addDoc(collectionRef, {
       title: title,
-      docsDesc : ''
+      docsDesc: "",
     })
       .then(() => {
         alert("Data added");
@@ -56,38 +57,40 @@ export default function Docs({ database }) {
     getDocs();
   });
   return (
-    <div className="docs-container">
-      <h1>my docs</h1>
+    <HomeLayout>
+      <div className="docs-container">
+        <h1>my docs</h1>
 
-      <button className="add-docs" onClick={handleOpen}>
-        Add a Document
-      </button>
+        <button className="add-docs" onClick={handleOpen}>
+          Add a Document
+        </button>
 
-      <ModalBox
-        open={open}
-        setOpen={setOpen}
-        title={title}
-        setTitle={setTitle}
-        addDocs={addDocs}
-      />
+        <ModalBox
+          open={open}
+          setOpen={setOpen}
+          title={title}
+          setTitle={setTitle}
+          addDocs={addDocs}
+        />
 
-      <div className="grid-main">
-        {docsData.map((doc) => {
-          return (
-            <div
-              key={doc.id}
-              className="grid-child"
-              onClick={() => getId(doc.id)}
-            >
-              <p>{doc.title}</p>
+        <div className="grid-main">
+          {docsData.map((doc) => {
+            return (
+              <div
+                key={doc.id}
+                className="grid-child"
+                onClick={() => getId(doc.id)}
+              >
+                <p>{doc.title}</p>
 
-              {/*  use dangerouslySetInnerHTML because data is added in the form of tags in React Quill. 
+                {/*  use dangerouslySetInnerHTML because data is added in the form of tags in React Quill. 
               That makes it easier to render the formatting. */}
-              <div dangerouslySetInnerHTML={{ __html: doc.docsDesc }} />
-            </div>
-          );
-        })}
+                <div dangerouslySetInnerHTML={{ __html: doc.docsDesc }} />
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </HomeLayout>
   );
 }

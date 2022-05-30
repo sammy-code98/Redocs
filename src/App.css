@@ -2,8 +2,14 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+.nav {
+  background-color: #fff;
+  box-shadow: none;
+  color:#5f6368;
+}
 .docs-container {
   text-align: center;
+  /* background-color: #dadce0; */
 }
 .edit-container {
   padding: 0 50px;
