@@ -13,14 +13,16 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
+import SettingsIcon from "@mui/icons-material/Settings";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import AddToDriveIcon from '@mui/icons-material/AddToDrive';
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import Avatar from "@mui/material/Avatar";
-import AssignmentIcon from '@mui/icons-material/Assignment';
-
+import AssignmentIcon from "@mui/icons-material/Assignment";
 
 const drawerWidth = 240;
 
@@ -87,7 +89,7 @@ function HomeLayout({ children }) {
       </Typography>
       <Divider />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+        {["Docs", "Sheets", "Slides", "Forms"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
@@ -100,11 +102,11 @@ function HomeLayout({ children }) {
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
+        {["Settings", "Help & Feedback"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <SettingsIcon /> : <HelpOutlineIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -113,11 +115,11 @@ function HomeLayout({ children }) {
       </List>
       <Divider />
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
+        {["Drive"].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <AddToDriveIcon /> : null}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -172,8 +174,7 @@ function HomeLayout({ children }) {
             alt="Remy Sharp"
             src="/static/images/avatar/1.jpg"
             sx={{ width: 40, height: 40 }}
-            style={{marginLeft:'100px'}}
-
+            style={{ marginLeft: "100px" }}
           />
         </Toolbar>
       </AppBar>
