@@ -152,7 +152,6 @@ function HomeLayout({ children }) {
             <MenuIcon />
           </IconButton>
           <AssignmentIcon />
-
           <Typography
             variant="h6"
             noWrap
@@ -172,10 +171,9 @@ function HomeLayout({ children }) {
           </Search>
           <Avatar
             alt="Remy Sharp"
-            src="/static/images/avatar/1.jpg"
             sx={{ width: 40, height: 40 }}
             style={{ marginLeft: "100px" }}
-          />
+          >SU</Avatar>
         </Toolbar>
       </AppBar>
       <Box

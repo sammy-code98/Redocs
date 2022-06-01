@@ -2,41 +2,36 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import doc from "../docs.png"
 
-
-export default function DocCard({title, docsDesc}) {
+export default function DocCard({ title, docsDesc }) {
   return (
     <Card sx={{ maxWidth: 250 }}>
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
+        image={doc}
+        alt="docs image"
       />
+      <CardActions
+        disableSpacing
+        sx={{ display: "flex", justifyContent: "space-around" }}
+      >
+        <AssignmentIcon color="primary" />
 
-      <CardActions>
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-          <Typography>
-              {title}
-              {docsDesc}
-          </Typography>
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        
-        
-        
-      
-        
+        <Typography>{title}</Typography>
 
+        <IconButton aria-label="settings">
+          <MoreVertIcon />
+        </IconButton>
       </CardActions>
+      <Typography sx={{ textAlign: "center" }} mb={2}>
+        {docsDesc}
+      </Typography>
     </Card>
   );
 }
