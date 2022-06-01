@@ -24,6 +24,7 @@ export default function Docs({ database }) {
     addDoc(collectionRef, {
       title: title,
       docsDesc: "",
+      createdAt: new Date(),
     })
       .then(() => {
         alert("Data added");
@@ -91,6 +92,7 @@ export default function Docs({ database }) {
                 title={doc.title}
                 // dangerouslySetInnerHTML={{ __html: doc.docsDesc }}
                 docsDesc={doc.docsDesc}
+                // createdAt={doc.createdAt.toDate().getTime()}
               />
             );
           })}
