@@ -4,6 +4,7 @@ import ModalBox from "./Modal";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import HomeLayout from "../layout/HomeLayout";
 import DocCard from "./Card";
+import Box from "@mui/material/Box";
 
 export default function Docs({ database }) {
   const [open, setOpen] = useState(false);
@@ -74,7 +75,13 @@ export default function Docs({ database }) {
           addDocs={addDocs}
         />
 
-        <div className="grid-main">
+        <Box
+          sx={{
+            display: "grid",
+            gap: 4,
+            gridTemplateColumns: "repeat(4, 1fr)",
+          }}
+        >
           {docsData.map((doc) => {
             return (
               <DocCard
@@ -85,7 +92,7 @@ export default function Docs({ database }) {
               />
             );
           })}
-        </div>
+        </Box>
       </div>
     </HomeLayout>
   );
