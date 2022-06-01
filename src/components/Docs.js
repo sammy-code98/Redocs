@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ModalBox from "./Modal";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import HomeLayout from "../layout/HomeLayout";
+import DocCard from "./Card";
 
 export default function Docs({ database }) {
   const [open, setOpen] = useState(false);
@@ -76,17 +77,12 @@ export default function Docs({ database }) {
         <div className="grid-main">
           {docsData.map((doc) => {
             return (
-              <div
+              <DocCard
                 key={doc.id}
-                className="grid-child"
                 onClick={() => getId(doc.id)}
-              >
-                <p>{doc.title}</p>
-
-                {/*  use dangerouslySetInnerHTML because data is added in the form of tags in React Quill. 
-              That makes it easier to render the formatting. */}
-                <div dangerouslySetInnerHTML={{ __html: doc.docsDesc }} />
-              </div>
+                title={doc.title}
+                dangerouslySetInnerHTML={{ __html: doc.docsDesc }}
+              />
             );
           })}
         </div>
