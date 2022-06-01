@@ -24,6 +24,8 @@ import InputBase from "@mui/material/InputBase";
 import Avatar from "@mui/material/Avatar";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 
+
+
 const drawerWidth = 240;
 
 const Search = styled("div")(({ theme }) => ({
@@ -151,8 +153,7 @@ function HomeLayout({ children }) {
           >
             <MenuIcon />
           </IconButton>
-          <AssignmentIcon />
-
+          <AssignmentIcon  sx={{color:"primary.main"}}/>
           <Typography
             variant="h6"
             noWrap
@@ -172,10 +173,9 @@ function HomeLayout({ children }) {
           </Search>
           <Avatar
             alt="Remy Sharp"
-            src="/static/images/avatar/1.jpg"
-            sx={{ width: 40, height: 40 }}
+            sx={{ width: 40, height: 40, bgcolor:"primary.main" }}
             style={{ marginLeft: "100px" }}
-          />
+          >SU</Avatar>
         </Toolbar>
       </AppBar>
       <Box

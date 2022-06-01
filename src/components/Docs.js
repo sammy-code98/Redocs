@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import ModalBox from "./Modal";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import HomeLayout from "../layout/HomeLayout";
+import DocCard from "./Card";
+import Box from "@mui/material/Box";
 
 export default function Docs({ database }) {
   const [open, setOpen] = useState(false);
@@ -61,7 +63,7 @@ export default function Docs({ database }) {
       <div className="docs-container">
         <h1>my docs</h1>
 
-        <button className="add-docs" onClick={handleOpen}>
+        <button className="add-docs" onClick={handleOpen} >
           Add a Document
         </button>
 
@@ -73,23 +75,26 @@ export default function Docs({ database }) {
           addDocs={addDocs}
         />
 
-        <div className="grid-main">
+        <Box
+        mt={4}
+          sx={{
+            display: "grid",
+            gap: 4,
+            gridTemplateColumns: "repeat(4, 1fr)",
+          }}
+        >
           {docsData.map((doc) => {
             return (
-              <div
+              <DocCard
                 key={doc.id}
-                className="grid-child"
                 onClick={() => getId(doc.id)}
-              >
-                <p>{doc.title}</p>
-
-                {/*  use dangerouslySetInnerHTML because data is added in the form of tags in React Quill. 
-              That makes it easier to render the formatting. */}
-                <div dangerouslySetInnerHTML={{ __html: doc.docsDesc }} />
-              </div>
+                title={doc.title}
+                // dangerouslySetInnerHTML={{ __html: doc.docsDesc }}
+                docsDesc={doc.docsDesc}
+              />
             );
           })}
-        </div>
+        </Box>
       </div>
     </HomeLayout>
   );
