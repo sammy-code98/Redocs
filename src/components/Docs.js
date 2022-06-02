@@ -91,7 +91,7 @@ export default function Docs({ database }) {
                   title={doc.title}
                   // dangerouslySetInnerHTML={{ __html: doc.docsDesc }}
                   docsDesc={doc.docsDesc}
-                  // createdAt={doc.createdAt.toDate().getTime()}
+                  // createdAt={doc.createdAt}
                 />
               </div>
             );

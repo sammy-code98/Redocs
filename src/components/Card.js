@@ -8,9 +8,9 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import doc from "../docs.png";
 
-export default function DocCard({ title, docsDesc ,createdAt}) {
+export default function DocCard({ title, docsDesc, createdAt }) {
   return (
-    <Card sx={{ maxWidth: 250 ,  cursor:'pointer'}}>
+    <Card sx={{ maxWidth: 250, cursor: "pointer" }}>
       <CardMedia component="img" height="194" image={doc} alt="docs image" />
       <Typography
         sx={{
@@ -32,7 +32,6 @@ export default function DocCard({ title, docsDesc ,createdAt}) {
         <AssignmentIcon color="primary" />
 
         <Typography sx={{ textAlign: "center" }} variant="caption">
-          {/* {docsDesc} */}
           {createdAt}
         </Typography>
         <IconButton aria-label="settings">
