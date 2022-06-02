@@ -11,9 +11,7 @@
   text-align: center;
   /* background-color: #dadce0; */
 }
-.edit-container {
-  padding: 0 50px;
-}
+
 
 .add-docs {
   height: 40px;
@@ -49,3 +47,24 @@
   justify-content: center;
 }
 
+.editDocs-main {
+  font-family: 'Poppins', sans-serif;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.editDocs-inner {
+  width: 800px;
+  box-shadow: 0px -2px 5px 2px rgba(181, 181, 181, 0.75);
+  -webkit-box-shadow: 0px -2px 5px 2px rgba(181, 181, 181, 0.75);
+  -moz-box-shadow: 0px -2px 5px 2px rgba(181, 181, 181, 0.75);
+  padding: 20px;
+  height: 750px;
+}
+
+.ql-container.ql-snow {
+  border: none !important;
+}

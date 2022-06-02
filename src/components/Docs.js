@@ -64,7 +64,7 @@ export default function Docs({ database }) {
       <div className="docs-container">
         <h1>my docs</h1>
 
-        <button className="add-docs" onClick={handleOpen} >
+        <button className="add-docs" onClick={handleOpen}>
           Add a Document
         </button>
 
@@ -77,7 +77,7 @@ export default function Docs({ database }) {
         />
 
         <Box
-        mt={4}
+          mt={4}
           sx={{
             display: "grid",
             gap: 4,
@@ -86,14 +86,14 @@ export default function Docs({ database }) {
         >
           {docsData.map((doc) => {
             return (
-              <DocCard
-                key={doc.id}
-                onClick={() => getId(doc.id)}
-                title={doc.title}
-                // dangerouslySetInnerHTML={{ __html: doc.docsDesc }}
-                docsDesc={doc.docsDesc}
-                // createdAt={doc.createdAt.toDate().getTime()}
-              />
+              <div key={doc.id} onClick={() => getId(doc.id)}>
+                <DocCard
+                  title={doc.title}
+                  // dangerouslySetInnerHTML={{ __html: doc.docsDesc }}
+                  docsDesc={{__html: doc.docsDesc }}
+                  // createdAt={doc.createdAt.toDate().getTime()}
+                />
+              </div>
             );
           })}
         </Box>
