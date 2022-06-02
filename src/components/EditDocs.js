@@ -49,10 +49,14 @@ function EditDocs({ database }) {
   }, []);
 
   return (
-    <div className="docs-container">
+    <div className="editDocs-main">
       <h1>{docTitle}</h1>
-      <div className="edit-container">
-        <ReactQuill value={docsDesc} onChange={fetchQuillData} />
+      <div className="editDocs-inner">
+        <ReactQuill
+          className="react-quill"
+          value={docsDesc}
+          onChange={fetchQuillData}
+        />
       </div>
     </div>
   );

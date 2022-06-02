@@ -10,7 +10,7 @@ import doc from "../docs.png";
 
 export default function DocCard({ title, docsDesc ,createdAt}) {
   return (
-    <Card sx={{ maxWidth: 250 }}>
+    <Card sx={{ maxWidth: 250 ,  cursor:'pointer'}}>
       <CardMedia component="img" height="194" image={doc} alt="docs image" />
       <Typography
         sx={{
