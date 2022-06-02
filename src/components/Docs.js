@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ModalBox from "./Modal";
-import { addDoc, collection, onSnapshot } from "firebase/firestore";
+import { addDoc, collection, onSnapshot, Timestamp } from "firebase/firestore";
 import HomeLayout from "../layout/HomeLayout";
 import DocCard from "./Card";
 import Box from "@mui/material/Box";
@@ -91,7 +91,7 @@ export default function Docs({ database }) {
                   title={doc.title}
                   // dangerouslySetInnerHTML={{ __html: doc.docsDesc }}
                   docsDesc={doc.docsDesc}
-                  // createdAt={doc.createdAt}
+                  // createdAt={doc.createdAt.doc.toDate()}
                 />
               </div>
             );
