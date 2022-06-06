@@ -3,16 +3,15 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import doc from "../docs.png";
+import MenuBtn from "./MenuBtn";
 
 export default function DocCard({ title, docsDesc, createdAt }) {
   return (
     <Card sx={{ maxWidth: 250 }}>
-      <CardContent sx={{ cursor: "pointer" }}>
+      <CardContent>
         <CardMedia component="img" height="194" image={doc} alt="docs image" />
         <Typography
           sx={{
@@ -37,9 +36,7 @@ export default function DocCard({ title, docsDesc, createdAt }) {
         <Typography sx={{ textAlign: "center" }} variant="caption">
           {createdAt}
         </Typography>
-        <IconButton aria-label="settings">
-          <MoreVertIcon />
-        </IconButton>
+        <MenuBtn />
       </CardActions>
     </Card>
   );

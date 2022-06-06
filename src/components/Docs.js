@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ModalBox from "./Modal";
 import { addDoc, collection, onSnapshot, Timestamp } from "firebase/firestore";
 import HomeLayout from "../layout/HomeLayout";
-import DocCard from "./Card";
+import DocCard from "./DocCard";
 import Box from "@mui/material/Box";
 
 export default function Docs({ database }) {
@@ -84,9 +84,10 @@ export default function Docs({ database }) {
             gridTemplateColumns: "repeat(4, 1fr)",
           }}
         >
+          {/* onClick={() => getId(doc.id)} */}
           {docsData.map((doc) => {
             return (
-              <div key={doc.id} onClick={() => getId(doc.id)}>
+              <div key={doc.id}>
                 <DocCard
                   title={doc.title}
                   // dangerouslySetInnerHTML={{ __html: doc.docsDesc }}
