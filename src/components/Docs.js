@@ -65,9 +65,9 @@ export default function Docs({ database }) {
       <div className="docs-container">
         <h1>my docs</h1>
 
-        <button className="add-docs" onClick={handleOpen}>
+        {/* <button className="add-docs" onClick={handleOpen}>
           Add a Document
-        </button>
+        </button> */}
 
         <ModalBox
           open={open}
