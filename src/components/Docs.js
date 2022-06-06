@@ -5,6 +5,7 @@ import { addDoc, collection, onSnapshot, Timestamp } from "firebase/firestore";
 import HomeLayout from "../layout/HomeLayout";
 import DocCard from "./DocCard";
 import Box from "@mui/material/Box";
+import AddCard from "./AddCard"
 
 export default function Docs({ database }) {
   const [open, setOpen] = useState(false);
@@ -84,6 +85,7 @@ export default function Docs({ database }) {
             gridTemplateColumns: "repeat(4, 1fr)",
           }}
         >
+          <AddCard/>
           {/* onClick={() => getId(doc.id)} */}
           {docsData.map((doc) => {
             return (
