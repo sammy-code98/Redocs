@@ -5,7 +5,9 @@ import { addDoc, collection, onSnapshot, Timestamp } from "firebase/firestore";
 import HomeLayout from "../layout/HomeLayout";
 import DocCard from "./DocCard";
 import Box from "@mui/material/Box";
-import AddCard from "./AddCard"
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import AddIcon from "@mui/icons-material/Add";
 
 export default function Docs({ database }) {
   const [open, setOpen] = useState(false);
@@ -69,14 +71,6 @@ export default function Docs({ database }) {
           Add a Document
         </button> */}
 
-        <ModalBox
-          open={open}
-          setOpen={setOpen}
-          title={title}
-          setTitle={setTitle}
-          addDocs={addDocs}
-        />
-
         <Box
           mt={4}
           sx={{
@@ -85,7 +79,35 @@ export default function Docs({ database }) {
             gridTemplateColumns: "repeat(4, 1fr)",
           }}
         >
-          <AddCard/>
+          <Box>
+            <Card
+              sx={{ maxWidth: 250, cursor: "pointer" }}
+              onClick={handleOpen}
+            >
+              <CardContent
+                sx={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  flexWrap: "wrap",
+                }}
+              >
+                <AddIcon
+                  sx={{
+                    fontSize: 130,
+                    marginTop: 8,
+                  }}
+                  color="primary"
+                />
+              </CardContent>
+            </Card>
+            <ModalBox
+              open={open}
+              setOpen={setOpen}
+              title={title}
+              setTitle={setTitle}
+              addDocs={addDocs}
+            />
+          </Box>
           {/* onClick={() => getId(doc.id)} */}
           {docsData.map((doc) => {
             return (
