@@ -83,7 +83,7 @@ export default function Docs({ database }) {
           <Box>
             <Tooltip title="Add a new Document" arrow>
               <Card
-                sx={{ maxWidth: 250, height: 300, cursor: "pointer" }}
+                sx={{ maxWidth: 250, height: 305, cursor: "pointer" }}
                 onClick={handleOpen}
               >
                 <CardContent
