@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import ModalBox from "./Modal";
-import { addDoc, collection, onSnapshot, Timestamp } from "firebase/firestore";
+import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import HomeLayout from "../layout/HomeLayout";
 import DocCard from "./DocCard";
+import ModalBox from "./Modal";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import AddIcon from "@mui/icons-material/Add";
+import Typography from "@mui/material/Typography";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function Docs({ database }) {
   const [open, setOpen] = useState(false);
@@ -20,7 +22,8 @@ export default function Docs({ database }) {
   // state to hold fetched data
   const [docsData, setDocsData] = useState([]);
 
-  // take the database that we got from the firebaseConfig.js and the name of the collection we want to use.
+  // take the database that we got from the firebaseConfig.js
+  //  and the name of the collection we want to use.
   const collectionRef = collection(database, "docsData");
 
   const addDocs = () => {
@@ -65,11 +68,9 @@ export default function Docs({ database }) {
   return (
     <HomeLayout>
       <div className="docs-container">
-        <h1>my docs</h1>
-
-        {/* <button className="add-docs" onClick={handleOpen}>
-          Add a Document
-        </button> */}
+        <Typography variant="h5" gutterBottom component="div">
+          My Documents
+        </Typography>
 
         <Box
           mt={4}
@@ -80,26 +81,29 @@ export default function Docs({ database }) {
           }}
         >
           <Box>
-            <Card
-              sx={{ maxWidth: 250, cursor: "pointer" }}
-              onClick={handleOpen}
-            >
-              <CardContent
-                sx={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  flexWrap: "wrap",
-                }}
+            <Tooltip title="Add a new Document" arrow>
+              <Card
+                sx={{ maxWidth: 250, height: 300, cursor: "pointer" }}
+                onClick={handleOpen}
               >
-                <AddIcon
+                <CardContent
                   sx={{
-                    fontSize: 130,
-                    marginTop: 8,
+                    display: "inline-flex",
+                    alignItems: "center",
+                    flexWrap: "wrap",
                   }}
-                  color="primary"
-                />
-              </CardContent>
-            </Card>
+                >
+                  <AddIcon
+                    sx={{
+                      fontSize: 130,
+                      marginTop: 8,
+                    }}
+                    color="primary"
+                  />
+                </CardContent>
+              </Card>
+            </Tooltip>
+
             <ModalBox
               open={open}
               setOpen={setOpen}

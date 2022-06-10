@@ -13,17 +13,6 @@
 }
 
 
-.add-docs {
-  height: 40px;
-  width: 200px;
-  background-color: #1d9bf0;
-  font-weight: bold;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
 .add-input {
   width: 95%;
   height: 40px;
