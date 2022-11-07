@@ -9,7 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import AddIcon from "@mui/icons-material/Add";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
-import DocCard from "./DocCard";
+import { DocCard } from "./index";
 
 export default function Docs({ database }) {
   const [open, setOpen] = useState(false);
