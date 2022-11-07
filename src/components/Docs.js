@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import HomeLayout from "../layout/HomeLayout";
-import DocCard from "./DocCard";
 import ModalBox from "./Modal";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -10,6 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import AddIcon from "@mui/icons-material/Add";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
+import { DocCard } from "./index";
 
 export default function Docs({ database }) {
   const [open, setOpen] = useState(false);
