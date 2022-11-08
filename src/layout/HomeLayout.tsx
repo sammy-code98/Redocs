@@ -70,7 +70,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function HomeLayout({ children }) {
+function HomeLayout({ children }: { children: any }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -153,7 +153,7 @@ function HomeLayout({ children }) {
           >
             <MenuIcon />
           </IconButton>
-          <AssignmentIcon  sx={{color:"primary.main"}}/>
+          <AssignmentIcon sx={{ color: "primary.main" }} />
           <Typography
             variant="h6"
             noWrap
@@ -173,7 +173,7 @@ function HomeLayout({ children }) {
           </Search>
           <Avatar
             alt="Remy Sharp"
-            sx={{ width: 40, height: 40, bgcolor:"primary.main" }}
+            sx={{ width: 40, height: 40, bgcolor: "primary.main" }}
             style={{ marginLeft: "100px" }}
           >SU</Avatar>
         </Toolbar>
