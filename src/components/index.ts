@@ -1,3 +1,3 @@
 import DocCard from "components/DocCard";
-
-export { DocCard };
+import Docs from "components/Docs";
+export { DocCard, Docs };

@@ -1,5 +1,5 @@
 import "./App.css";
-import Docs from "./components/Docs";
+import { Docs } from "components/index";
 import EditDocs from "./components/EditDocs";
 import { Routes, Route } from "react-router-dom";
 import { app, database } from "./firebaseConfig";
