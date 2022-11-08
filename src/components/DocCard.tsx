@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-import MenuBtn from "./MenuBtn";
+import { MenuBtn } from "components/index"
 const doc = require("../assets/docs.png")
 
 export default function DocCard({ title, docsDesc, createdAt }: { title: string, docsDesc?: string, createdAt?: string }) {
