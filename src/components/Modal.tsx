@@ -1,8 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import { addDoc } from 'firebase/firestore';
 
 const style = {
   position: "absolute",
@@ -16,7 +16,7 @@ const style = {
   p: 4,
 };
 
-export default function ModalBox({ open, setOpen, title, setTitle, addDocs }) {
+export default function ModalBox({ open, setOpen, title, setTitle, addDocs }: { open: boolean, setOpen: any, title: string, setTitle: any, addDocs: any }) {
   const handleClose = () => setOpen(false);
   return (
     <div>
