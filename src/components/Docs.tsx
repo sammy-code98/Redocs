@@ -20,7 +20,7 @@ export default function Docs({ database }: { database: any }) {
   const [title, setTitle] = useState("");
 
   // state to hold fetched data
-  const [docsData, setDocsData] = useState([]);
+  const [docsData, setDocsData] = useState<any[]>([]);
 
   // take the database that we got from the firebaseConfig.js
   //  and the name of the collection we want to use.
