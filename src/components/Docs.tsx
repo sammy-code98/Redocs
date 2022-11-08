@@ -57,7 +57,7 @@ export default function Docs({ database }: { database: any }) {
   };
   // to prevent the  concurrent rendering react v18 use the useRef
 
-  const isMounted = useRef();
+  const isMounted = useRef<boolean | null>(null);
   useEffect(() => {
     if (isMounted.current) {
       return;
