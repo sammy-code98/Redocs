@@ -5,12 +5,10 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Typography from "@mui/material/Typography";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-// import doc from "assets/docs.png";
-
 import MenuBtn from "./MenuBtn";
 const doc = require("../assets/docs.png")
 
-export default function DocCard({ title, docsDesc, createdAt }: { title: string, docsDesc?: string, createdAt: string }) {
+export default function DocCard({ title, docsDesc, createdAt }: { title: string, docsDesc?: string, createdAt?: string }) {
   return (
     <Card sx={{ maxWidth: 250 }}>
       <CardContent>

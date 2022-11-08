@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import { DocCard } from "./index";
 
-export default function Docs({ database }) {
+export default function Docs({ database }: { database: any }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -43,7 +43,7 @@ export default function Docs({ database }) {
 
   const getDocs = () => {
     onSnapshot(collectionRef, (data) => {
-      setDocsData(
+      return setDocsData(
         data.docs.map((doc) => {
           return { ...doc.data(), id: doc.id };
         })
@@ -52,7 +52,7 @@ export default function Docs({ database }) {
   };
 
   let navigate = useNavigate();
-  const getId = (id) => {
+  const getId = (id: any) => {
     navigate(`/editDocs/${id}`);
   };
   // to prevent the  concurrent rendering react v18 use the useRef
@@ -120,7 +120,7 @@ export default function Docs({ database }) {
                   title={doc.title}
                   // dangerouslySetInnerHTML={{ __html: doc.docsDesc }}
                   docsDesc={doc.docsDesc}
-                  // createdAt={doc.createdAt.doc.toDate()}
+                // createdAt={doc.createdAt.doc.toDate()}
                 />
               </div>
             );
