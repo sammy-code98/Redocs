@@ -5,14 +5,14 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { updateDoc, doc, collection, onSnapshot } from "firebase/firestore";
 
-function EditDocs({ database }) {
+function EditDocs({ database }: { database: any }) {
   const [docsDesc, setDocsDesc] = useState("");
   const [docTitle, setDocTitle] = useState("");
   let params = useParams();
   const collectionRef = collection(database, "docsData");
-  const isMounted = useRef();
+  const isMounted = useRef<boolean | null>(null);
 
-  const fetchQuillData = (value) => {
+  const fetchQuillData = (value: string) => {
     setDocsDesc(value);
   };
 
@@ -35,8 +35,8 @@ function EditDocs({ database }) {
   const fetchData = () => {
     const document = doc(collectionRef, params.id);
     onSnapshot(document, (docs) => {
-      setDocTitle(docs.data().title);
-      setDocsDesc(docs.data().docsDesc);
+      setDocTitle(docs.data()?.title);
+      setDocsDesc(docs.data()?.docsDesc);
       //   console.log(docs.data().docsDesc);
     });
   };
