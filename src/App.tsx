@@ -1,7 +1,7 @@
 import "./App.css";
 import { Docs, EditDocs } from "components/index";
 import { Routes, Route } from "react-router-dom";
-import { app, database } from "./firebaseConfig";
+import { database } from "./firebaseConfig";
 
 function App() {
   return (
