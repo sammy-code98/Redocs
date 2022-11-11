@@ -10,16 +10,15 @@ const doc = require("../assets/docs.png")
 
 export default function DocCard({ title, docsDesc, createdAt }: { title: string, docsDesc?: string, createdAt?: string }) {
   return (
-    <Card sx={{ maxWidth: 250 }}>
+    <Card >
       <CardContent>
         <CardMedia component="img" height="194" image={doc} alt="docs image" />
         <Typography
           sx={{
             textAlign: "left",
             mx: "8px",
-            mt: "4px",
             textTransform: "capitalize",
-            fontWeight: "medium",
+            fontWeight: "bold",
           }}
           variant="body2"
         >
@@ -33,7 +32,7 @@ export default function DocCard({ title, docsDesc, createdAt }: { title: string,
       >
         <AssignmentIcon color="primary" />
 
-        <Typography sx={{ textAlign: "center" }} variant="caption">
+        <Typography sx={{ textAlign: "center", flexWrap: 'wrap' }} variant="caption">
           {createdAt}
         </Typography>
         <MenuBtn />

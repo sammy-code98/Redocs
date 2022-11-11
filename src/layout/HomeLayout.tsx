@@ -36,13 +36,13 @@ const Search = styled("div")(({ theme }) => ({
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  marginRight: theme.spacing(2),
+  marginRight: theme.spacing(0),
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(8),
     padding: "2px",
-    width: "70%",
+    width: "100%",
   },
 }));
 
@@ -153,15 +153,8 @@ function HomeLayout({ children }: { children: any }) {
           >
             <MenuIcon />
           </IconButton>
-          <AssignmentIcon sx={{ color: "primary.main" }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            Docs{" "}
-          </Typography>
+          <AssignmentIcon sx={{ color: "primary.main", display: { xs: "none", sm: "block" } }} />
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -171,11 +164,15 @@ function HomeLayout({ children }: { children: any }) {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+
           <Avatar
             alt="Remy Sharp"
-            sx={{ width: 40, height: 40, bgcolor: "primary.main" }}
+            src="/static/images/avatar/1.jpg"
+            sx={{ width: 40, height: 40 }}
             style={{ marginLeft: "100px" }}
-          >SU</Avatar>
+
+          />
+
         </Toolbar>
       </AppBar>
       <Box

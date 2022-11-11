@@ -75,9 +75,12 @@ export default function Docs({ database }: { database: any }) {
           mt={4}
           sx={{
             display: "grid",
-            gap: 4,
-            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: { xs: 2, sm: 4, md: 4 },
+            gridTemplateColumns: { xs: '1fr 1fr', sm: '1fr 1fr', md: 'repeat(4, 1fr)' },
+            justifyContent: 'center'
+
           }}
+
         >
           <Box>
             <Tooltip title="Add a new Document" arrow>

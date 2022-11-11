@@ -8,14 +8,14 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: "70%",
   bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
   p: 4,
 };
 
-export default function ModalBox({ open, setOpen, title, setTitle, addDocs }: { open: boolean, setOpen: any, title: string, setTitle: any, addDocs: any }) {
+
+export default function ModalBox({ open, setOpen, title, setTitle, addDocs }:
+  { open: boolean, setOpen: any, title: string, setTitle: any, addDocs: any }) {
   const handleClose = () => setOpen(false);
   return (
     <div>
