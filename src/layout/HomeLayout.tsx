@@ -171,11 +171,15 @@ function HomeLayout({ children }: { children: any }) {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+
           <Avatar
             alt="Remy Sharp"
-            sx={{ width: 40, height: 40, bgcolor: "primary.main" }}
+            src="/static/images/avatar/1.jpg"
+            sx={{ width: 40, height: 40 }}
             style={{ marginLeft: "100px" }}
-          >SU</Avatar>
+
+          />
+
         </Toolbar>
       </AppBar>
       <Box

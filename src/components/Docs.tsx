@@ -78,6 +78,7 @@ export default function Docs({ database }: { database: any }) {
             gap: 4,
             gridTemplateColumns: "repeat(4, 1fr)",
           }}
+
         >
           <Box>
             <Tooltip title="Add a new Document" arrow>
