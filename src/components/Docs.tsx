@@ -76,7 +76,9 @@ export default function Docs({ database }: { database: any }) {
           sx={{
             display: "grid",
             gap: 4,
-            gridTemplateColumns: "repeat(4, 1fr)",
+            gridTemplateColumns: { sm: '1fr', md: 'repeat(4, 1fr)' },
+            justifyContent: 'center'
+
           }}
 
         >
