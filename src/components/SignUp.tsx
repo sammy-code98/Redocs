@@ -15,12 +15,12 @@ export default function SignUp() {
 
 
         >
-            <Typography variant="h2" gutterBottom component="div">Welocome to Redocs</Typography>
+            <Typography variant="h2" gutterBottom textAlign='center' component="div">Welocome to Redocs</Typography>
 
-            <Typography variant="h4" gutterBottom component="div">Redocs is a simple Google Docs clone </Typography>
+            <Typography variant="h4" gutterBottom textAlign='center' component="div">Redocs is a simple Google Docs clone </Typography>
 
 
-            <Typography variant="h6" gutterBottom component="div">To get started, sign up with your Google Account</Typography>
+            <Typography variant="h6" gutterBottom textAlign='center' component="div">To get started, sign up with your Google Account</Typography>
 
             <Box marginTop='6rem'>
                 <img src={signup} alt='signup' className='signUp-img' />
