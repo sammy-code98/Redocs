@@ -8,6 +8,8 @@ import CardContent from "@mui/material/CardContent";
 import AddIcon from "@mui/icons-material/Add";
 import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 import { DocCard, ModalBox } from "./index";
 
 export default function Docs({ database }: { database: any }) {
@@ -33,6 +35,10 @@ export default function Docs({ database }: { database: any }) {
     })
       .then(() => {
         alert("Data added");
+        <Alert severity="success">
+        <AlertTitle>Success</AlertTitle>
+        This is a success alert — <strong>check it out!</strong>
+      </Alert>
         handleClose();
       })
       .catch(() => {
@@ -132,3 +138,9 @@ export default function Docs({ database }: { database: any }) {
     </HomeLayout>
   );
 }
+
+
+
+// const Alert = () => {
+ 
+// }
