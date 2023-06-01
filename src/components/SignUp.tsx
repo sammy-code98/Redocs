@@ -12,13 +12,10 @@ export default function SignUp() {
             justifyContent='center'
             alignItems='center'
             paddingTop='6rem'
-
-
         >
-            <Typography variant="h2" gutterBottom textAlign='center' component="div">Welocome to Redocs</Typography>
+            <Typography variant="h2" gutterBottom textAlign='center' component="div">Welcome to Redocs</Typography>
 
             <Typography variant="h4" gutterBottom textAlign='center' component="div">Redocs is a simple Google Docs clone </Typography>
-
 
             <Typography variant="h6" gutterBottom textAlign='center' component="div">To get started, sign up with your Google Account</Typography>
 
