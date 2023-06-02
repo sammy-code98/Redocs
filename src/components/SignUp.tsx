@@ -1,10 +1,19 @@
 import React from 'react'
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { auth } from '../firebaseConfig';
+import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
+
+
 const signup = require("../assets/btn.png")
 
 
 export default function SignUp() {
+
+    const googleSignIn = () => {
+        const provider = new GoogleAuthProvider()
+        signInWithRedirect(auth, provider)
+    }
     return (
         <Box
             display='flex'
@@ -20,7 +29,7 @@ export default function SignUp() {
             <Typography variant="h6" gutterBottom textAlign='center' component="div">To get started, sign up with your Google Account</Typography>
 
             <Box marginTop='6rem'>
-                <img src={signup} alt='signup' className='signUp-img' />
+                <img src={signup} alt='signup' className='signUp-img' onClick={googleSignIn} />
             </Box>
 
         </Box>
