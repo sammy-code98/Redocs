@@ -15,7 +15,6 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import SettingsIcon from "@mui/icons-material/Settings";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import AddToDriveIcon from "@mui/icons-material/AddToDrive";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { styled, alpha } from "@mui/material/styles";
@@ -23,8 +22,10 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import Avatar from "@mui/material/Avatar";
 import AssignmentIcon from "@mui/icons-material/Assignment";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { getAuth } from "firebase/auth";
-
+import { signOut } from "firebase/auth";
+import { auth } from '../firebaseConfig';
 
 
 const drawerWidth = 240;
@@ -74,11 +75,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function HomeLayout({ children }: { children: any }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  const auth = getAuth()
-  const user = auth.currentUser
+  const userAuth = getAuth()
+  const user = userAuth.currentUser
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  const logOut = () => {
+    console.log('log out');
+
+    signOut(auth)
+
+  }
 
   const drawer = (
     <div>
@@ -120,11 +128,11 @@ function HomeLayout({ children }: { children: any }) {
       </List>
       <Divider />
       <List>
-        {["Drive"].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {["Sign Out"].map((text, index) => (
+          <ListItem key={text} disablePadding onClick={logOut}>
             <ListItemButton>
               <ListItemIcon>
-                {index % 2 === 0 ? <AddToDriveIcon /> : null}
+                {index % 2 === 0 ? <ExitToAppIcon /> : null}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
