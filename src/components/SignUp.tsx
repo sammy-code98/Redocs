@@ -1,19 +1,45 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { auth } from '../firebaseConfig';
-import { GoogleAuthProvider, signInWithRedirect } from "firebase/auth";
-
+import { auth, database } from '../firebaseConfig';
+import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { query, collection, getDocs, where, addDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const signup = require("../assets/btn.png")
 
 
 export default function SignUp() {
 
-    const googleSignIn = () => {
-        const provider = new GoogleAuthProvider()
-        signInWithRedirect(auth, provider)
+    const [user, loading, error] = useAuthState(auth)
+    const googleProvider = new GoogleAuthProvider()
+    const navigate = useNavigate()
+    const googleSignIn = async () => {
+        try {
+            const res = await signInWithPopup(auth, googleProvider)
+            const user = res.user
+            console.log(user);
+
+            const q = query(collection(database, "users"), where("uid", "==", user.uid))
+            const docs = await getDocs(q)
+            if (docs.docs.length === 0) {
+                await addDoc(collection(database, "users"), {
+                    uid: user.uid,
+                    name: user.displayName,
+                    authProvider: "google",
+                    email: user.email
+                })
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
+
+    useEffect(() => {
+        if (loading) return;
+        if (user) navigate("/docs")
+    }, [user, loading, navigate])
     return (
         <Box
             display='flex'
