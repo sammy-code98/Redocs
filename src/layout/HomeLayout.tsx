@@ -23,6 +23,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import Avatar from "@mui/material/Avatar";
 import AssignmentIcon from "@mui/icons-material/Assignment";
+import { getAuth } from "firebase/auth";
 
 
 
@@ -73,6 +74,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function HomeLayout({ children }: { children: any }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  const auth = getAuth()
+  const user = auth.currentUser
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -166,8 +169,8 @@ function HomeLayout({ children }: { children: any }) {
           </Search>
 
           <Avatar
-            alt="Remy Sharp"
-            src="/static/images/avatar/1.jpg"
+            alt="Semy Sharp"
+            src={user?.photoURL}
             sx={{ width: 40, height: 40 }}
             style={{ marginLeft: "100px" }}
 
